@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="imobiliariaModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="imobiliariaModelStoreContainer">
+          <EntitySet Name="clientes" EntityType="imobiliariaModel.Store.clientes" store:Type="Tables" Schema="imobiliaria" />
+          <EntitySet Name="imobiliarias" EntityType="imobiliariaModel.Store.imobiliarias" store:Type="Tables" Schema="imobiliaria" />
+          <AssociationSet Name="FK_Cliente_Imobiliaria" Association="imobiliariaModel.Store.FK_Cliente_Imobiliaria">
+            <End Role="imobiliarias" EntitySet="imobiliarias" />
+            <End Role="clientes" EntitySet="clientes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_imobiliaria" Type="int" />
+          <Property Name="pessoa_fisica" Type="tinyint" />
+          <Property Name="razao" Type="varchar" MaxLength="60" />
+          <Property Name="fantasia" Type="varchar" MaxLength="60" />
+          <Property Name="cnpj_cpf" Type="varchar" MaxLength="20" />
+          <Property Name="ie_rg" Type="varchar" MaxLength="20" />
+          <Property Name="imunicipal" Type="varchar" MaxLength="20" />
+          <Property Name="endereco" Type="varchar" MaxLength="60" />
+          <Property Name="numero" Type="varchar" MaxLength="60" />
+          <Property Name="complemento" Type="varchar" MaxLength="60" />
+          <Property Name="bairro" Type="varchar" MaxLength="60" />
+          <Property Name="cidade" Type="varchar" MaxLength="60" />
+          <Property Name="estado" Type="varchar" MaxLength="2" />
+          <Property Name="cep" Type="varchar" MaxLength="10" />
+          <Property Name="pais" Type="varchar" MaxLength="60" />
+          <Property Name="telefone" Type="varchar" MaxLength="20" />
+          <Property Name="celular" Type="varchar" MaxLength="20" />
+          <Property Name="nextel" Type="varchar" MaxLength="20" />
+          <Property Name="cadastro" Type="datetime" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="site" Type="varchar" MaxLength="200" />
+          <Property Name="observacao" Type="text" />
+          <Property Name="estado_civil" Type="varchar" MaxLength="20" />
+          <Property Name="nascimento" Type="datetime" />
+          <Property Name="conjuge_nome" Type="varchar" MaxLength="60" />
+          <Property Name="conjuge_rg" Type="varchar" MaxLength="20" />
+          <Property Name="conjuge_orgao" Type="varchar" MaxLength="10" />
+          <Property Name="conjuge_cpf" Type="varchar" MaxLength="20" />
+          <Property Name="conjuge_nascimento" Type="datetime" />
+          <Property Name="conjuge_email" Type="varchar" MaxLength="200" />
+          <Property Name="ativo" Type="bit" />
+        </EntityType>
+        <EntityType Name="imobiliarias">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pessoa_fisica" Type="tinyint" />
+          <Property Name="razao" Type="varchar" MaxLength="60" />
+          <Property Name="fantasia" Type="varchar" MaxLength="60" />
+          <Property Name="cnpj_cpf" Type="varchar" MaxLength="20" />
+          <Property Name="ie_rg" Type="varchar" MaxLength="20" />
+          <Property Name="imunicipal" Type="varchar" MaxLength="20" />
+          <Property Name="endereco" Type="varchar" MaxLength="60" />
+          <Property Name="numero" Type="varchar" MaxLength="60" />
+          <Property Name="complemento" Type="varchar" MaxLength="60" />
+          <Property Name="bairro" Type="varchar" MaxLength="60" />
+          <Property Name="cidade" Type="varchar" MaxLength="60" />
+          <Property Name="estado" Type="varchar" MaxLength="2" />
+          <Property Name="cep" Type="varchar" MaxLength="10" />
+          <Property Name="pais" Type="varchar" MaxLength="60" />
+          <Property Name="telefone" Type="varchar" MaxLength="20" />
+          <Property Name="celular" Type="varchar" MaxLength="20" />
+          <Property Name="nextel" Type="varchar" MaxLength="20" />
+          <Property Name="cadastro" Type="datetime" />
+          <Property Name="email" Type="varchar" MaxLength="200" />
+          <Property Name="site" Type="varchar" MaxLength="200" />
+          <Property Name="observacao" Type="text" />
+          <Property Name="comissao_imobiliaria" Type="double" />
+        </EntityType>
+        <Association Name="FK_Cliente_Imobiliaria">
+          <End Role="imobiliarias" Type="imobiliariaModel.Store.imobiliarias" Multiplicity="0..1" />
+          <End Role="clientes" Type="imobiliariaModel.Store.clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="imobiliarias">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="clientes">
+              <PropertyRef Name="codigo_imobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="imobiliariaModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="imobiliariaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="clientes" EntityType="imobiliariaModel.clientes" />
+          <EntitySet Name="imobiliarias" EntityType="imobiliariaModel.imobiliarias" />
+          <AssociationSet Name="FK_Cliente_Imobiliaria" Association="imobiliariaModel.FK_Cliente_Imobiliaria">
+            <End Role="imobiliarias" EntitySet="imobiliarias" />
+            <End Role="clientes" EntitySet="clientes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="codigo_imobiliaria" Type="Int32" />
+          <Property Name="pessoa_fisica" Type="SByte" />
+          <Property Name="razao" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="fantasia" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="cnpj_cpf" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ie_rg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="imunicipal" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="endereco" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="numero" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="complemento" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="bairro" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="cidade" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="cep" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="pais" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="telefone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="celular" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="nextel" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="cadastro" Type="DateTime" />
+          <Property Name="email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="site" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="observacao" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
+          <Property Name="estado_civil" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="nascimento" Type="DateTime" />
+          <Property Name="conjuge_nome" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="conjuge_rg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="conjuge_orgao" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="conjuge_cpf" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="conjuge_nascimento" Type="DateTime" />
+          <Property Name="conjuge_email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Type="Boolean" Name="ativo" />
+          <NavigationProperty Name="imobiliarias" Relationship="imobiliariaModel.FK_Cliente_Imobiliaria" FromRole="clientes" ToRole="imobiliarias" />
+        </EntityType>
+        <EntityType Name="imobiliarias">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pessoa_fisica" Type="SByte" />
+          <Property Name="razao" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="fantasia" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="cnpj_cpf" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ie_rg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="imunicipal" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="endereco" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="numero" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="complemento" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="bairro" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="cidade" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="estado" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+          <Property Name="cep" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="pais" Type="String" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="telefone" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="celular" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="nextel" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="cadastro" Type="DateTime" />
+          <Property Name="email" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="site" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="observacao" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
+          <Property Name="comissao_imobiliaria" Type="Double" />
+          <NavigationProperty Name="clientes" Relationship="imobiliariaModel.FK_Cliente_Imobiliaria" FromRole="imobiliarias" ToRole="clientes" />
+        </EntityType>
+        <Association Name="FK_Cliente_Imobiliaria">
+          <End Type="imobiliariaModel.imobiliarias" Role="imobiliarias" Multiplicity="0..1" />
+          <End Type="imobiliariaModel.clientes" Role="clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="imobiliarias">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="clientes">
+              <PropertyRef Name="codigo_imobiliaria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="imobiliariaModelStoreContainer" CdmEntityContainer="imobiliariaEntities">
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="imobiliariaModel.clientes">
+              <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="ativo" ColumnName="ativo" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="codigo_imobiliaria" ColumnName="codigo_imobiliaria" />
+                <ScalarProperty Name="pessoa_fisica" ColumnName="pessoa_fisica" />
+                <ScalarProperty Name="razao" ColumnName="razao" />
+                <ScalarProperty Name="fantasia" ColumnName="fantasia" />
+                <ScalarProperty Name="cnpj_cpf" ColumnName="cnpj_cpf" />
+                <ScalarProperty Name="ie_rg" ColumnName="ie_rg" />
+                <ScalarProperty Name="imunicipal" ColumnName="imunicipal" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="complemento" ColumnName="complemento" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="nextel" ColumnName="nextel" />
+                <ScalarProperty Name="cadastro" ColumnName="cadastro" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="site" ColumnName="site" />
+                <ScalarProperty Name="observacao" ColumnName="observacao" />
+                <ScalarProperty Name="estado_civil" ColumnName="estado_civil" />
+                <ScalarProperty Name="nascimento" ColumnName="nascimento" />
+                <ScalarProperty Name="conjuge_nome" ColumnName="conjuge_nome" />
+                <ScalarProperty Name="conjuge_rg" ColumnName="conjuge_rg" />
+                <ScalarProperty Name="conjuge_orgao" ColumnName="conjuge_orgao" />
+                <ScalarProperty Name="conjuge_cpf" ColumnName="conjuge_cpf" />
+                <ScalarProperty Name="conjuge_nascimento" ColumnName="conjuge_nascimento" />
+                <ScalarProperty Name="conjuge_email" ColumnName="conjuge_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="imobiliarias">
+            <EntityTypeMapping TypeName="imobiliariaModel.imobiliarias">
+              <MappingFragment StoreEntitySet="imobiliarias">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="pessoa_fisica" ColumnName="pessoa_fisica" />
+                <ScalarProperty Name="razao" ColumnName="razao" />
+                <ScalarProperty Name="fantasia" ColumnName="fantasia" />
+                <ScalarProperty Name="cnpj_cpf" ColumnName="cnpj_cpf" />
+                <ScalarProperty Name="ie_rg" ColumnName="ie_rg" />
+                <ScalarProperty Name="imunicipal" ColumnName="imunicipal" />
+                <ScalarProperty Name="endereco" ColumnName="endereco" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="complemento" ColumnName="complemento" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="nextel" ColumnName="nextel" />
+                <ScalarProperty Name="cadastro" ColumnName="cadastro" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="site" ColumnName="site" />
+                <ScalarProperty Name="observacao" ColumnName="observacao" />
+                <ScalarProperty Name="comissao_imobiliaria" ColumnName="comissao_imobiliaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
