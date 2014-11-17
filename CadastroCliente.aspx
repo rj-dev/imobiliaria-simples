@@ -35,7 +35,7 @@
             <li>
 
                 <asp:TextBox ID="txtDataNascimento" runat="server" placeholder="Data de Nascimento"></asp:TextBox>
-                <asp:TextBox ID="txtEndereco" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtEndereco" runat="server" placeholder="Endereço"></asp:TextBox>
                 <asp:TextBox ID="txtNumero" runat="server"></asp:TextBox>
             </li>
             <li>
