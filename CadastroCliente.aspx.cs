@@ -11,4 +11,9 @@ public partial class CadastroCliente : System.Web.UI.Page
     {
 
     }
+
+    protected void DetailsView1_OnItemInserting(object sender, DetailsViewInsertEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
