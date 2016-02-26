@@ -44,7 +44,7 @@
         <legend>Imobiliarias</legend>
 
         <asp:Panel runat="server" ID="pnlGrid">
-            <telerik:RadGrid ID="RadGrid1" runat="server" AllowFilteringByColumn="True" AllowPaging="True" AllowSorting="True"
+            <telerik:RadGrid ID="RadGrid1" runat="server" AllowFilteringByColumn="True" AllowPaging="True" AllowSorting="True" Width="900px"
                 AutoGenerateColumns="False" DataSourceID="SqlDataSource1" ShowStatusBar="True" ShowFooter="True" GridLines="None" Skin="Outlook"
                 AllowAutomaticUpdates="True"
                 AllowAutomaticInserts="True"
@@ -60,24 +60,31 @@
 
                     <Columns>
                         <telerik:GridBoundColumn DataField="razao" DefaultInsertValue="" HeaderText="Razão Sicial" UniqueName="razao" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
-                            <HeaderStyle Width="250px" />
+                            <HeaderStyle Width="200px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="fantasia" DefaultInsertValue="" HeaderText="Nome Fantasia" UniqueName="fantasia" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
-                            <HeaderStyle Width="250px" />
+                            <HeaderStyle Width="200px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="cnpj_cpf" DefaultInsertValue="" HeaderText="CNPJ" UniqueName="cnpj_cpf" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
+                            <HeaderStyle Width="150px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="telefone" DefaultInsertValue="" HeaderText="Telefone" UniqueName="telefone" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
+                            <HeaderStyle Width="100px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="celular" DefaultInsertValue="" HeaderText="Celular" UniqueName="celular" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
+                            <HeaderStyle Width="100px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="email" DefaultInsertValue="" HeaderText="Email" UniqueName="email" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
+                            <HeaderStyle Width="100px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="site" DefaultInsertValue="" HeaderText="Site" UniqueName="site" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
+                            <HeaderStyle Width="100px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="observacao" DefaultInsertValue="" HeaderText="Observação" UniqueName="observacao" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
+                            <HeaderStyle Width="100px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="comissao_imobiliaria" DefaultInsertValue="" HeaderText="Comissão" UniqueName="comissao_imobiliaria" FilterControlWidth="100%" ShowFilterIcon="False" AutoPostBackOnFilter="True" CurrentFilterFunction="Contains">
+                            <HeaderStyle Width="100px" />
                         </telerik:GridBoundColumn>
                         <telerik:GridEditCommandColumn ButtonType="ImageButton" UniqueName="TemplateEditColumn">
                             <HeaderStyle Width="40px" />
